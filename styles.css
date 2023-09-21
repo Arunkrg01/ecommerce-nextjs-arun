@@ -1,0 +1,85 @@
+.h1,h2,h3,h4,h5,h6,p{
+    margin: 0;
+    padding: 0;
+}
+
+.red-badge {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 5px;
+  }
+
+  .main-child{
+    padding-top: 4rem;
+  }
+
+  .footer-header{
+    border-bottom: 1px solid blue;
+  }
+
+  .feature-text{
+    font-family: var(--font-roboto-mono);
+    font-size: 2rem;
+  }
+
+  .feature-text {
+    display: flex;
+    align-items: center;
+  }
+  
+  .left-line,
+  .right-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #000; /* Color of the lines */
+    margin: 0 10px; /* Adjust spacing as needed */
+  }
+  
+  .feature-text span {
+    font-weight: bold; /* Style the feature text */
+  }
+  
+/* In your CSS file or component styles */
+.black-text {
+    color: black !important;
+  }
+  
+  .nav-link {
+    color: black !important;
+  }
+
+  .nav-li{
+    color: white !important;
+  }
+
+  .circular-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    margin-right: 0.2rem;
+    border: 5px solid transparent; /* Add a transparent border */
+  }
+  
+  .circular-button.selected {
+    border-color: grey; /* Change the border color for the selected button */
+  }
+  
+.circular-button-cart{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 2rem;
+}
+
+.view-details-button:hover{
+  background-color: lightgray !important;
+}
