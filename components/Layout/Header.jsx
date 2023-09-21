@@ -44,22 +44,16 @@ const Header = () => {
     }
   }, []);
 
-  const handleNavigation = (path) => {
-    router.push(path);
-  };
-
-  const handleCart = () => {
-    router.push('/cart')
-  }
-
+const handleHome = () =>{
+  router.push('/')
+}
 
 
   return (
     <Navbar bg="light" expand="lg" style={{ backgroundColor: 'black', color: 'white', position: 'fixed', width: '100%', zIndex: '100' }}>
       <Container>
         <Navbar.Brand>
-          <Image src={logo} alt="logo" width={150} height={50} loading="lazy"
-          />
+          <Image src={logo} alt="logo" width={150} height={50} loading="lazy" onClick={handleHome}/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="navbarNavDropdown" />
         <Navbar.Collapse id="navbarNavDropdown">
@@ -87,9 +81,11 @@ const Header = () => {
                 <ShoppingCartOutlinedIcon color="action" />
               </Badge>
             </Link>
+            <Link href="/">
             <Badge badgeContent={1} color="warning" sx={{ margin: ".5rem" }}>
               <FavoriteBorderOutlinedIcon color="action" />
             </Badge>
+            </Link>
           </Nav>
           <Link href='/auth' style={{ margin: ".5rem" }}>
             <Logout color="action" />

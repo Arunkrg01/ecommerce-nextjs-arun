@@ -24,7 +24,7 @@ function CartItems(props) {
     }, []);
 
     return (
-        <Table className='mt-3 text-center'>
+        <Table className='mt-3 text-center' responsive>
         <thead>
             <tr>
                 <th>Image</th>
