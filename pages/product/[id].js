@@ -12,6 +12,7 @@ import { Suspense } from 'react'
 import Loading from '../loading';
 import Layout from '@/components/Layout/Layout';
 import PrivateRoute from '@/components/PrivateRoute';
+import { Grid } from '@mui/material';
 
 
 const ProductCard = dynamic(() => import('../../components/ProductCard'), {
@@ -28,7 +29,7 @@ function ProductPageCategory(props) {
     const [sortOptionColor, setSortOptionColor] = useState('default');
     const [page, setPage] = useState(1)
     const [queryData, setQueryData] = useState()
-    const [value, setValue] = React.useState(50);
+    const [value, setValue] = React.useState(5000);
     const [productData, setProductData] = useState(props.productData)
     let cookies
     let jwtToken
@@ -86,7 +87,7 @@ function ProductPageCategory(props) {
     }
 
     const handleMoreData = () => {
-       
+
     }
 
 
@@ -115,7 +116,8 @@ function ProductPageCategory(props) {
                             </Breadcrumb.Item>
                             <Breadcrumb.Item active>{currentRoute}</Breadcrumb.Item>
                         </Breadcrumb>
-                        <div style={{ display: 'flex', gap: '10px', marginBottom: "2rem" }}>
+                        <Grid container spacing={2} sx={{marginBottom:"1rem"}}>
+                            <Grid item xs={6} lg={2} md={2}>
                             <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
                                 <p>Sort:</p>
                                 <Dropdown>
@@ -135,54 +137,60 @@ function ProductPageCategory(props) {
                                         {/* Add other sorting options here */}
                                     </Dropdown.Menu>
                                 </Dropdown>
-                                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                                    <p>Color:</p>
-                                    <Dropdown>
-                                        <Dropdown.Toggle variant="secondary" id="sort-dropdown" style={{ backgroundColor: 'white', color: 'black' }}>
-                                            {sortOptionColor === 'default' ? 'Default' : sortOptionColor}
-                                        </Dropdown.Toggle>
-                                        <Dropdown.Menu>
-                                            <Dropdown.Item onClick={() => handleColorChange('default')}>
-                                                Default
-                                            </Dropdown.Item>
-                                            <Dropdown.Item onClick={() => handleColorChange('Red')}>
-                                                Red
-                                            </Dropdown.Item>
-                                            <Dropdown.Item onClick={() => handleColorChange('Blue')}>
-                                                Blue
-                                            </Dropdown.Item>
-                                            <Dropdown.Item onClick={() => handleColorChange('Green')}>
-                                                Green
-                                            </Dropdown.Item>
-                                            <Dropdown.Item onClick={() => handleColorChange('Yellow')}>
-                                                Yellow
-                                            </Dropdown.Item>
-                                            <Dropdown.Item onClick={() => handleColorChange('Black')}>
-                                                Black
-                                            </Dropdown.Item>
-                                            <Dropdown.Item onClick={() => handleColorChange('White')}>
-                                                White
-                                            </Dropdown.Item>
-                                            <Dropdown.Item onClick={() => handleColorChange('Grey')}>
-                                                Grey
-                                            </Dropdown.Item>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
-                                <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
-                                    <p>Price:</p>
-                                    <p>0</p>
-                                    <RangeSlider
-                                        min={0}
-                                        max={10000}
-                                        value={value}
-                                        onChange={e => setValue(e.target.value)}
-                                        tooltip='on'
-                                    />
-                                    <p>10000</p>
-                                </div>
                             </div>
-                        </div>
+                            </Grid>
+                            <Grid item xs={6} lg={2} md={2}>
+                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                                <p>Color:</p>
+                                <Dropdown>
+                                    <Dropdown.Toggle variant="secondary" id="sort-dropdown" style={{ backgroundColor: 'white', color: 'black' }}>
+                                        {sortOptionColor === 'default' ? 'Default' : sortOptionColor}
+                                    </Dropdown.Toggle>
+                                    <Dropdown.Menu>
+                                        <Dropdown.Item onClick={() => handleColorChange('default')}>
+                                            Default
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={() => handleColorChange('Red')}>
+                                            Red
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={() => handleColorChange('Blue')}>
+                                            Blue
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={() => handleColorChange('Green')}>
+                                            Green
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={() => handleColorChange('Yellow')}>
+                                            Yellow
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={() => handleColorChange('Black')}>
+                                            Black
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={() => handleColorChange('White')}>
+                                            White
+                                        </Dropdown.Item>
+                                        <Dropdown.Item onClick={() => handleColorChange('Grey')}>
+                                            Grey
+                                        </Dropdown.Item>
+                                    </Dropdown.Menu>
+                                </Dropdown>
+                            </div>
+                            </Grid>
+                            <Grid item xs={6} lg={2} md={2}>
+                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center' }}>
+                                <p>Price:</p>
+                                <p>0</p>
+                                <RangeSlider
+                                    min={0}
+                                    max={10000}
+                                    value={value}
+                                    onChange={e => setValue(e.target.value)}
+                                    tooltip='on'
+                                />
+                                <p>10000</p>
+                            </div>
+                            </Grid>
+                           
+                        </Grid>
                     </Container>
                     <Container>
                         <Row>

@@ -89,6 +89,7 @@ const UserComment = (props) => {
                                     numberOfStars={5}
                                     name='rating'
                                     className="small-stars"
+                                    starDimension="2rem" 
                                 />
                             </div>
                             <Button onClick={handleAddComment} className="mt-3">
